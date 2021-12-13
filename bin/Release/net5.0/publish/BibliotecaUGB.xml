@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BibliotecaUGB</name>
+    </assembly>
+    <members>
+        <member name="M:BibliotecaUGB.Controllers.AutorController.ObtenerListadoDeAutores">
+            <summary>
+            Obteniendo listado de Autores.
+            </summary>
+            <remarks>
+            Mediante este verbo se obtienen todos los registros de Autores que hay en la base de datos.
+            </remarks>
+        </member>
+        <member name="M:BibliotecaUGB.Controllers.AutorController.ObetnerAutorPorID(System.Int32)">
+            <summary>
+            Obteniendo datos de Autor mediante el Id de este.
+            </summary>
+            <remarks>
+            Mediante el mismo verbo Get pero ahora pasandole un parametro para realizar una busqueda filtrada por el Id del Autor.
+            </remarks>
+            <param name="id_autor">N. Identificador de Autor.</param>
+        </member>
+        <member name="M:BibliotecaUGB.Controllers.AutorController.PublicarAutor(BibliotecaUGB.Models.Autor)">
+            <summary>
+            Creando nuevo registro de Autor.
+            </summary>
+            <remarks>
+            Mediante este verbo creamos un nuevo registro de Autor en la base de datos.
+            </remarks>
+        </member>
+        <member name="M:BibliotecaUGB.Controllers.AutorController.EditarDatosAutor(System.Int32,BibliotecaUGB.Models.Autor)">
+            <summary>
+            Actualizando Datos del Autor. N.
+            </summary>
+            <remarks>
+            Mediante este verbo actualizamos un registro de Autor en la base de datos mediante el Id.
+            </remarks>
+            <param name="id_autor">N. Identificador de Autor.</param>
+            <param name="autor"></param>
+        </member>
+        <member name="M:BibliotecaUGB.Controllers.AutorController.EliminarAutor(System.Int32)">
+            <summary>
+            ELiminando a un Autor de los registros mediante su Id.
+            </summary>
+            <remarks>
+            COn este verbo podremos eliminar el registro de un autor, mediante su Id.
+            </remarks>
+            <param name="id_autor">N. Identificador de Autor</param>
+        </member>
+        <member name="M:BibliotecaUGB.Controllers.LibroController.ObtenerListaLibros">
+            <summary>
+            Obteniendo listado de Libros.
+            </summary>
+            <remarks>
+            Mediante este verbo se obtienen todos los ibros registrados que hay en la base de datos.
+            </remarks>
+        </member>
+        <member name="M:BibliotecaUGB.Controllers.LibroController.ObtenerLibroPorID(System.Int32)">
+            <summary>
+            Obteniendo datos de Libros mediante el Id de este.
+            </summary>
+            <remarks>
+            Mediante el mismo verbo Get pero ahora pasandole un parametro para realizar una busqueda filtrada por el Id del Libro.
+            </remarks>
+            <param name="id_libro">N. Identificador del Libro.</param>
+        </member>
+        <member name="M:BibliotecaUGB.Controllers.LibroController.PublicarLibro(BibliotecaUGB.Models.Libro)">
+            <summary>
+            Creando nuevo registro de un nuevo Libro.
+            </summary>
+            <remarks>
+            Mediante este verbo creamos un nuevo Libro en los registros de la base de datos.
+            </remarks>
+        </member>
+        <member name="M:BibliotecaUGB.Controllers.LibroController.EditarLibro(System.Int32,BibliotecaUGB.Models.Libro)">
+            <summary>
+            Actualizando Datos de un Libro, mediante su Id.
+            </summary>
+            <remarks>
+            Mediante este verbo actualizamos un registro de un Libro en la base de datos mediante el Id.
+            </remarks>
+            <param name="id_libro">N. Identificador de un Libro.</param>
+            <param name="libro"></param>
+        </member>
+        <member name="M:BibliotecaUGB.Controllers.LibroController.EliminarLibro(System.Int32)">
+            <summary>
+            ELiminando a un Libro de los registros mediante su Id.
+            </summary>
+            <remarks>
+            COn este verbo podremos eliminar el registro de un Libro, mediante su Id.
+            </remarks>
+            <param name="id_libro">N. Identificador de Libro</param>
+        </member>
+    </members>
+</doc>
