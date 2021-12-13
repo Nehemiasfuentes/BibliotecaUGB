@@ -20,6 +20,12 @@ namespace BibliotecaUGB.Controllers
         _context = context;
     }
 
+    /// <summary>
+    /// Obteniendo listado de Libros.
+    /// </summary>
+    /// <remarks>
+    /// Mediante este verbo se obtienen todos los ibros registrados que hay en la base de datos.
+    /// </remarks>
     [HttpGet]
     public async Task<ActionResult<List<Libro>>> ObtenerListaLibros()
     {
@@ -27,6 +33,13 @@ namespace BibliotecaUGB.Controllers
         return libros;
     }
 
+    /// <summary>
+    /// Obteniendo datos de Libros mediante el Id de este.
+    /// </summary>
+    /// <remarks>
+    /// Mediante el mismo verbo Get pero ahora pasandole un parametro para realizar una busqueda filtrada por el Id del Libro.
+    /// </remarks>
+    /// <param name="id_libro">N. Identificador del Libro.</param>
     [HttpGet("{id}")]
     public async Task<ActionResult<Libro>> ObtenerLibroPorID(int id_libro)
     {
@@ -38,6 +51,12 @@ namespace BibliotecaUGB.Controllers
         return libros;
     }
 
+    /// <summary>
+    /// Creando nuevo registro de un nuevo Libro.
+    /// </summary>
+    /// <remarks>
+    /// Mediante este verbo creamos un nuevo Libro en los registros de la base de datos.
+    /// </remarks>
     [HttpPost]
     public async Task<ActionResult<Libro>> PublicarLibro(Libro libro)
     {
@@ -45,6 +64,15 @@ namespace BibliotecaUGB.Controllers
         await _context.SaveChangesAsync();
         return CreatedAtAction("ObtenerLibroPorID", new{id_libro=libro.LibroID},libro);
     }
+
+    /// <summary>
+    /// Actualizando Datos de un Libro, mediante su Id.
+    /// </summary>
+    /// <remarks>
+    /// Mediante este verbo actualizamos un registro de un Libro en la base de datos mediante el Id.
+    /// </remarks>
+    /// <param name="id_libro">N. Identificador de un Libro.</param>
+    /// <param name="libro"></param>
     [HttpPut("{id}")]
     public async Task<ActionResult<Libro>> EditarLibro(int id_libro, Libro libro)
     {
@@ -70,6 +98,14 @@ namespace BibliotecaUGB.Controllers
     }
     return CreatedAtAction("ObtenerLibroPorID", new{id_libro=libro.LibroID},libro);
     }
+
+    /// <summary>
+    /// ELiminando a un Libro de los registros mediante su Id.
+    /// </summary>
+    /// <remarks>
+    /// COn este verbo podremos eliminar el registro de un Libro, mediante su Id.
+    /// </remarks>
+    /// <param name="id_libro">N. Identificador de Libro</param>
 
     [HttpDelete("{id}")]
     public async Task<ActionResult<Libro>> EliminarLibro(int id_libro)

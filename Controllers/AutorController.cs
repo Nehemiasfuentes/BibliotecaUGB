@@ -20,6 +20,12 @@ namespace BibliotecaUGB.Controllers
         _context = context;
     }
 
+    /// <summary>
+    /// Obteniendo listado de Autores.
+    /// </summary>
+    /// <remarks>
+    /// Mediante este verbo se obtienen todos los registros de Autores que hay en la base de datos.
+    /// </remarks>
     [HttpGet]
     public async Task<ActionResult<List<Autor>>> ObtenerListadoDeAutores()
     {
@@ -27,6 +33,13 @@ namespace BibliotecaUGB.Controllers
         return autores;
     }
 
+    /// <summary>
+    /// Obteniendo datos de Autor mediante el Id de este.
+    /// </summary>
+    /// <remarks>
+    /// Mediante el mismo verbo Get pero ahora pasandole un parametro para realizar una busqueda filtrada por el Id del Autor.
+    /// </remarks>
+    /// <param name="id_autor">N. Identificador de Autor.</param>
     [HttpGet("{id}")]
     public async Task<ActionResult<Autor>> ObetnerAutorPorID(int id_autor)
     {
@@ -38,6 +51,13 @@ namespace BibliotecaUGB.Controllers
         return autores;
     }
 
+
+    /// <summary>
+    /// Creando nuevo registro de Autor.
+    /// </summary>
+    /// <remarks>
+    /// Mediante este verbo creamos un nuevo registro de Autor en la base de datos.
+    /// </remarks>
     [HttpPost]
     public async Task<ActionResult<Autor>> PublicarAutor(Autor autor)
     {
@@ -46,6 +66,14 @@ namespace BibliotecaUGB.Controllers
         return CreatedAtAction("ObetnerAutorPorID", new{id_autor=autor.AutorID},autor);
     }
 
+    /// <summary>
+    /// Actualizando Datos del Autor. N.
+    /// </summary>
+    /// <remarks>
+    /// Mediante este verbo actualizamos un registro de Autor en la base de datos mediante el Id.
+    /// </remarks>
+    /// <param name="id_autor">N. Identificador de Autor.</param>
+    /// <param name="autor"></param>
     [HttpPut("{id}")]
     public async Task<ActionResult<Autor>> EditarDatosAutor(int id_autor, Autor autor)
     {
@@ -72,6 +100,13 @@ namespace BibliotecaUGB.Controllers
     return CreatedAtAction("ObtenerAutorPorID", new{id_autor=autor.AutorID},autor);
     }
 
+    /// <summary>
+    /// ELiminando a un Autor de los registros mediante su Id.
+    /// </summary>
+    /// <remarks>
+    /// COn este verbo podremos eliminar el registro de un autor, mediante su Id.
+    /// </remarks>
+    /// <param name="id_autor">N. Identificador de Autor</param>
     [HttpDelete("{id}")]
     public async Task<ActionResult<Autor>> EliminarAutor(int id_autor)
     {
