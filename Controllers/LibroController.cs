@@ -45,5 +45,48 @@ namespace BibliotecaUGB.Controllers
         await _context.SaveChangesAsync();
         return CreatedAtAction("ObtenerLibroPorID", new{id_libro=libro.LibroID},libro);
     }
+    [HttpPut("{id}")]
+    public async Task<ActionResult<Libro>> EditarLibro(int id_libro, Libro libro)
+    {
+    if(id_libro!= libro.LibroID)
+        {
+        return BadRequest();
+        }
+    _context.Entry(libro).State = EntityState.Modified;
+    try
+    {
+        await _context.SaveChangesAsync();
+    }
+    catch(DbUpdateConcurrencyException)
+    {
+        if(!ExisteLibro(id_libro))
+        {
+            return NotFound();
+        }
+        else
+        {
+            throw;
+        }
+    }
+    return CreatedAtAction("ObtenerLibroPorID", new{id_libro=libro.LibroID},libro);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<Libro>> EliminarLibro(int id_libro)
+    {
+        var libros = await _context.Libros.FindAsync(id_libro);
+        if(libros==null)
+        {
+            return NotFound();
+        }
+        _context.Libros.Remove(libros);
+        await _context.SaveChangesAsync();
+        return libros;
+        
+    }
+    private bool ExisteLibro(int id_libro)
+    {
+        return _context.Libros.Any(l=>l.LibroID==id_libro);
+    }
     }
 }
